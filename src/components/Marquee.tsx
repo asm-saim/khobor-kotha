@@ -7,8 +7,8 @@ const Marquee = async () => {
   const headings = data.data;
   console.log(headings);
   return (
-    <div className="bg-red-700 text-white">
-      <div className="flex max-w-7xl mx-auto">
+    <div className="bg-red-600 text-white">
+      <div className="flex max-w-7xl mx-auto px-4">
         <div className="bg-red-800 font-bold py-1 px-5 my-auto">সর্বশেষ</div>
         <MarqueeText className="py-1" direction="right" duration={15}>
           {headings.map((h, i) => (

@@ -1,14 +1,26 @@
+import MainNews from "@/components/MainNews";
 import Marquee from "@/components/Marquee";
 
-export default function Home() {
+const Home = async () => {
+  const res = await fetch("https://news-api-v2.vercel.app/api/news/sections");
+  const data = await res.json();
+  const sectionsData = data.data;
+  const mainNews = sectionsData[0].articles;
+
   return (
-    <div>
+    <div className="">
       <Marquee></Marquee>
-      <h1>
-        আইনশৃঙ্খলা নিয়ন্ত্রণে দল সামাল দেওয়াই এখন বিএনপির জন্য কঠিন হয়ে পড়েছে কি না– এমন প্রশ্নের জবাবে দলটির যুগ্ম
-        মহাসচিব সৈয়দ এমরান সালেহ প্রিন্স বলেছেন, সুনির্দিষ্ট কয়েকটা ঘটনা ঘটেছে যে বিষয়ে কঠোর ব্যবস্থা নিয়েছে সরকার ও দল।
-        তার মতে, সার্বিকভাবে আইনশৃঙ্খলা পরিস্থিতির "আগের চেয়ে অনেক উন্নতি হয়েছে" বলে দল মনে করছে।
-      </h1>
+      <div className="grid grid-cols-3 gap-5 max-w-7xl mx-auto px-4 mt-5">
+        {/* main news */}
+        <div className="col-span-2 bg-red-300">
+          <MainNews news={mainNews}></MainNews>
+        </div>
+
+        {/*highest read  */}
+        <div className="col-span-1 bg-green-400 h-20"></div>
+      </div>
     </div>
   );
-}
+};
+
+export default Home;
