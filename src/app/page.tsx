@@ -1,15 +1,18 @@
 import MainNews from "@/components/MainNews";
 import Marquee from "@/components/Marquee";
+import NewsCard from "@/components/NewsCard";
 
 const Home = async () => {
   const res = await fetch("https://news-api-v2.vercel.app/api/news/sections");
   const data = await res.json();
   const sectionsData = data.data;
   const mainNews = sectionsData[0].articles;
+  console.log("all", sectionsData);
 
   const otherSections = sectionsData.slice(1);
-  console.log("all", sectionsData);
+  const othersArticles = otherSections.articles;
   console.log("ot", otherSections);
+  console.log("oter news", othersArticles);
   return (
     <div className="">
       <Marquee></Marquee>
@@ -22,7 +25,12 @@ const Home = async () => {
           <div>
             {otherSections.map((ot) => (
               <div key={ot.curationId}>
-                <h1 className="mt-8 font-semibold border-b-2 border-red-700">{ot.title}</h1>
+                <h1 className="mt-10 font-semibold border-b-2 border-red-700">{ot.title}</h1>
+                <div className="grid grid-cols-3 gap-5 mt-5">
+                  {ot.articles.map((news) => (
+                    <NewsCard key={news.id} cardNews={news}></NewsCard>
+                  ))}
+                </div>
               </div>
             ))}
           </div>
