@@ -1,4 +1,5 @@
 import Image from "next/image";
+
 interface INews {
   imageUrl: string;
   category: string;
@@ -8,17 +9,33 @@ interface INews {
 
 const NewsCard = ({ cardNews }: { cardNews: INews }) => {
   return (
-    <div className="card w-full overflow-hidden bg-base-100 shadow-sm">
-      <div className="relative h-[150px] w-full">
-        <Image src={cardNews.imageUrl} alt={cardNews.title} fill className="object-cover" />
+    <div className="card h-full w-full overflow-hidden bg-base-100 shadow-sm">
+      <div className="relative h-[150px] w-full shrink-0">
+        <Image
+          src={cardNews.imageUrl}
+          alt={cardNews.title}
+          fill
+          className="object-cover"
+        />
       </div>
 
-      <div className="card-body px-3 pb-3">
-        <p className="text-[10px] font-semibold text-red-700">{cardNews.category}</p>
+      <div className="card-body flex-1 gap-0 p-4">
+        {/* Category */}
+        <p className="mb-1 text-[10px] font-semibold leading-4 text-red-700">
+          {cardNews.category}
+        </p>
 
-        <h2 className="card-title  text-base font-extrabold">{cardNews.title}</h2>
+        {/* Full title, no clamp */}
+        <h2 className="mb-2 text-sm font-extrabold leading-[20px]">
+          {cardNews.title}
+        </h2>
 
-        <p className="line-clamp-3 text-xs">{cardNews.description}</p>
+        {/* Description: max 3 lines, pushed to the bottom */}
+        <div className="mt-auto h-[54px] overflow-hidden">
+          <p className="line-clamp-3 text-xs leading-[18px] text-slate-600">
+            {cardNews.description}
+          </p>
+        </div>
       </div>
     </div>
   );
