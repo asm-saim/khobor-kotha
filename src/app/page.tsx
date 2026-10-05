@@ -7,13 +7,25 @@ const Home = async () => {
   const sectionsData = data.data;
   const mainNews = sectionsData[0].articles;
 
+  const otherSections = sectionsData.slice(1);
+  console.log("all", sectionsData);
+  console.log("ot", otherSections);
   return (
     <div className="">
       <Marquee></Marquee>
-      <div className="grid grid-cols-3 gap-5 max-w-7xl mx-auto px-4 mt-5">
+      <div className="grid grid-cols-3 gap-5 mt-5 max-w-7xl mx-auto px-4">
         {/* main news */}
-        <div className="col-span-2 bg-red-300">
+        <div className="col-span-2 ">
           <MainNews news={mainNews}></MainNews>
+
+          {/* others news */}
+          <div>
+            {otherSections.map((ot) => (
+              <div key={ot.curationId}>
+                <h1 className="mt-8 font-semibold border-b-2 border-red-700">{ot.title}</h1>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/*highest read  */}

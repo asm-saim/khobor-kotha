@@ -6,7 +6,6 @@ const MainNews = ({ news }) => {
 
   //   const otherNews = firstNews.slice(1);
   //   console.log(otherNews);
-
   console.log(others);
 
   return (
@@ -24,11 +23,11 @@ const MainNews = ({ news }) => {
       </div>
 
       {/* headlines */}
-      <div className="w-1/2 rounded-xl bg-gray-50">
+      <div className="w-1/2 rounded-lg border-gray-200 bg-gray-50">
         {others.slice(0, 4).map((other) => (
           <div className="px-3 border-b border-b-gray-200 pt-4" key={other.id}>
-            <p className="text-red-700 font-semibold text-sm pb-1">{firstNews.category}</p>
-            <h1 className="font-semibold">{other.title}</h1>
+            <p className="text-red-700 font-semibold text-xs pb-1">{firstNews.category}</p>
+            <h1 className="font-semibold pb-2 text-sm">{other.title}</h1>
           </div>
         ))}
       </div>
