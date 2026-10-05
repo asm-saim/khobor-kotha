@@ -16,6 +16,7 @@ const MainNews = ({ news }) => {
           <Image height={600} width={700} alt="first news" src={firstNews.imageUrl}></Image>
         </figure>
         <div className="card-body">
+          <p className="text-red-700 font-semibold">{firstNews.category}</p>
           <h2 className="card-title">{firstNews.title}</h2>
           <p>{firstNews.description}</p>
           <div className="card-actions justify-end"></div>
@@ -23,9 +24,12 @@ const MainNews = ({ news }) => {
       </div>
 
       {/* headlines */}
-      <div className="w-1/2">
+      <div className="w-1/2 rounded-xl bg-gray-50">
         {others.slice(0, 4).map((other) => (
-          <h1 key={other.id}>{other.title}</h1>
+          <div className="px-3 border-b border-b-gray-200 pt-4" key={other.id}>
+            <p className="text-red-700 font-semibold text-sm pb-1">{firstNews.category}</p>
+            <h1 className="font-semibold">{other.title}</h1>
+          </div>
         ))}
       </div>
     </div>
