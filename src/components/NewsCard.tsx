@@ -10,7 +10,7 @@ interface INews {
 const NewsCard = ({ cardNews }: { cardNews: INews }) => {
   return (
     <div className="card h-full w-full overflow-hidden bg-base-100 shadow-sm">
-      <div className="relative h-[150px] w-full shrink-0">
+      <div className="relative h-[180px] w-full shrink-0">
         <Image
           src={cardNews.imageUrl}
           alt={cardNews.title}

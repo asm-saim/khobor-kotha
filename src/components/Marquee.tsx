@@ -11,7 +11,7 @@ const Marquee = async () => {
   const headings: IHeadings[] = data.data;
   // console.log(headings);
   return (
-    <div className="bg-red-700  text-white text-xs">
+    <div className="bg-red-700  text-white text-sm">
       <div className="flex max-w-7xl mx-auto px-4 ">
         <div className="bg-red-900 font-bold py-2 px-5 my-auto">সর্বশেষ</div>
         <MarqueeText className="py-2" direction="right" duration={15}>

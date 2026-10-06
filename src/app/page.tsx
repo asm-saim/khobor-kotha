@@ -1,5 +1,4 @@
 import MainNews from "@/components/MainNews";
-import Marquee from "@/components/Marquee";
 import MostRead from "@/components/MostRead";
 import NewsCard from "@/components/NewsCard";
 
@@ -27,7 +26,6 @@ const Home = async () => {
 
   return (
     <div className="">
-      <Marquee></Marquee>
       <div className="grid grid-cols-3 gap-5 mt-5 max-w-7xl mx-auto px-4">
         {/* main news */}
         <div className="col-span-2 ">
