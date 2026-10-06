@@ -16,9 +16,9 @@ const Navlinks = async () => {
   //   console.log("hhh", filterNavs);
   return (
     <div className="flex gap-5 justify-center text-sm mb-4">
-      <Link href="/">হোম</Link>
+      <Link className="hover:text-red-700" href="/">হোম</Link>
       {filterNavs.map((n, i) => (
-        <Link key={i} href={`/category/${n.slug}`}>
+        <Link className="hover:text-red-700" key={i} href={`/category/${n.slug}`}>
           {n.title}
         </Link>
       ))}
