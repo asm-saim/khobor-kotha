@@ -13,12 +13,12 @@ const Navlinks = async () => {
   const data = await res.json();
   const navs: Navs[] = data.data;
   const filterNavs = navs.filter((n) => n.scrapable);
-
+  //   console.log("hhh", filterNavs);
   return (
     <div className="flex gap-5 justify-center text-sm mb-4">
       <Link href="/">হোম</Link>
       {filterNavs.map((n, i) => (
-        <Link key={i} href={n.slug}>
+        <Link key={i} href={`/category/${n.slug}`}>
           {n.title}
         </Link>
       ))}
